@@ -1,0 +1,5 @@
+<!--pages/timeline/timeline.wxml-->
+
+  <input class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
+
+  <input class='image_search' placeholder='Share it with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>

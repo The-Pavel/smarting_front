@@ -1,0 +1,24 @@
+/* pages/timeline/timeline.wxss */
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+view {
+  text-align: center;
+}
+
+.search_place {
+  font-style: italic;
+  text-align: center;
+}
+
+.image_search {
+  margin-top: 30rpx;
+}
+
+input {
+  text-align: center;
+}
