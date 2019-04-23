@@ -3,3 +3,9 @@
   <input class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
 
   <input class='image_search' placeholder='Share it with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
+
+<view class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
+  <view class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">
+  {{post.content}}
+</view>
+</view>

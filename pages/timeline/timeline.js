@@ -12,7 +12,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    
+    let page = this
+    wx.request({
+      url: 'http://localhost:3000/api/v1/posts',
+      success: function(res) {
+        console.log(res.data.posts)
+        page.setData(res.data)
+      }
+    })
   },
 
   /**
@@ -29,7 +36,6 @@ Page({
     this.setData({
       userInfo: getApp().globalData.userInfo,
     })
-    console.log(this.data)
   },
 
   /**
