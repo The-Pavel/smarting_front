@@ -2,11 +2,11 @@
 
   <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
 
-  <input class='image_search' placeholder='Share it with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
+  <input class='image_search' placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
-      <image src='{{image.webformatURL}}'/>
+      <image data-id='{{image.id}}' bindtap="select_image" src='{{image.webformatURL}}'/>
     </view>
   </view>  
 

@@ -77,6 +77,10 @@ Page({
     this.setData({search_done: false})
   },
 
+  select_image: function(e) {
+    let image_id = e.currentTarget.dataset.id
+  },
+
   image_search: function(e) {
     let page = this
     page.setData({ search_done: true })
