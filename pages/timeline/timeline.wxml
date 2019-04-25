@@ -1,8 +1,14 @@
 <!--pages/timeline/timeline.wxml-->
 
-  <input class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
+  <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
 
   <input class='image_search' placeholder='Share it with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
+
+  <view wx:if="{{search_done}}">
+    <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
+      <image src='{{image.webformatURL}}'/>
+    </view>
+  </view>  
 
 <view class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
   <view class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">

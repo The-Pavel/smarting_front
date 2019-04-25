@@ -5,7 +5,7 @@ Page({
    * Page initial data
    */
   data: {
-
+    search_done: false
   },
 
   /**
@@ -73,13 +73,25 @@ Page({
 
   },
 
+  remove_search: function(e) {
+    this.setData({search_done: false})
+  },
+
   image_search: function(e) {
+    let page = this
+    page.setData({ search_done: true })
     const pixabay_api = '12270710-587eb84d408349f72b29f4158';
     const pixabay_url = "https://pixabay.com/api/?key=" + pixabay_api + "&q=" + encodeURIComponent(e.detail.value);
     wx.request({
       url: pixabay_url,
       success: function(res) {
-        console.log(res)
+        let images = res.data.hits
+        images.sort(function (a, b) {
+          let x = a["likes"]; let y = b["likes"];
+          return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        });
+        console.log(images)
+        page.setData({searched_images: images})
       }
     })
   }
