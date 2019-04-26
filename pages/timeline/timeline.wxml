@@ -12,6 +12,11 @@
 
   <input class='image_search' placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
+  <view wx:if='{{text_added && image_selected}}' class="button_box">
+    <button type='default' bindtap='start_over'>Start over</button>
+    <button type='primary' bindtap='create_post'>Share</button>
+  </view>
+
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
       <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.webformatURL}}'/>

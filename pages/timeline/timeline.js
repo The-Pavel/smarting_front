@@ -8,6 +8,23 @@ Page({
     search_done: false
   },
 
+  start_over: function(e) {
+    this.setData({image_selected: false, text_added: false, search_done: false})
+  },
+
+  create_post: function(e) {
+    let page = this
+    let post = {image: page.data.selected_image.webformatURL, content: page.data.user_content}
+    wx.request({
+      url: 'http://localhost:3000/api/v1/posts',
+      method: 'POST',
+      data: post,
+      success: function(res) {
+        console.log(res)
+      }
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
@@ -16,7 +33,7 @@ Page({
     wx.request({
       url: 'http://localhost:3000/api/v1/posts',
       success: function(res) {
-        console.log(res.data.posts)
+        console.log(res)
         page.setData(res.data)
       }
     })

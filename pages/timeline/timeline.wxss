@@ -12,8 +12,15 @@
   align-items: center !important;
 }
 
-view {
+
+/* view {
   text-align: center;
+} */
+.button_box {
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .card-category {
@@ -43,7 +50,7 @@ view {
   align-items: center;
   color: white;
   width: 90vw;
-  /* padding: 20rpx; */
+  padding: 20rpx;
   font-size: 42rpx;
   font-weight: bold;
   text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
