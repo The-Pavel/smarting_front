@@ -2,11 +2,19 @@
 
   <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
 
+  <view wx:if="{{image_selected && !text_added}}">
+    <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.webformatURL}}'></image>
+  </view>
+
+  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{selected_image.webformatURL}})">
+  {{user_content}}
+  </view>
+
   <input class='image_search' placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
-      <image data-id='{{image.id}}' bindtap="select_image" src='{{image.webformatURL}}'/>
+      <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.webformatURL}}'/>
     </view>
   </view>  
 

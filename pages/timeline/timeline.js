@@ -79,6 +79,17 @@ Page({
 
   select_image: function(e) {
     let image_id = e.currentTarget.dataset.id
+    let page = this
+    console.log(image_id)
+    let selected_image = this.data.searched_images.find(o => o.id === image_id);
+    console.log(selected_image)
+    page.setData({selected_image: selected_image, image_selected: true})
+  },
+
+  add_text: function(e) {
+    let user_content = e.detail.value
+    console.log(user_content)
+    this.setData({user_content: user_content, text_added: true})
   },
 
   image_search: function(e) {

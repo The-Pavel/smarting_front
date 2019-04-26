@@ -31,7 +31,27 @@ view {
   text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
   border-radius: 5rpx;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
-  margin-top: 40rpx;
+  margin: 40rpx 1% 0 1%;
+}
+
+.created_card {
+  background-size: cover;
+  background-position: center;
+  height: 300rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 90vw;
+  /* padding: 20rpx; */
+  font-size: 42rpx;
+  font-weight: bold;
+  text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
+  border-radius: 5rpx;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
+  margin-top: 30rpx;
+  margin-left: 3.5%;
+  border: 5px solid lightblue;
 }
 
 .search_place {
