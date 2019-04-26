@@ -39,6 +39,30 @@
   border-radius: 5rpx;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
   margin: 40rpx 1% 0 1%;
+  position: relative;
+}
+
+.comment_count {
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+.comment_section {
+  position: absolute;
+  bottom: 0;
+  font-size: 24rpx;
+  text-align: left;
+  color: gray;
+  z-index: 1000000000;
+  background-color: white;
+  margin-bottom: -98rpx !important;
+  width: 97% !important;
+  padding-left: 3%;
+  left: 0;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
+  border-radius: 0 0 5rpx 5rpx;
 }
 
 .created_card {
@@ -58,7 +82,7 @@
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
   margin-top: 30rpx;
   margin-left: 3.5%;
-  border: 5px solid lightblue;
+  border: 5rpx solid lightblue;
 }
 
 .search_place {

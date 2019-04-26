@@ -25,6 +25,16 @@ Page({
     })
   },
 
+  toggle_comments: function(e) {
+    let page = this
+    let post_id = e.currentTarget.dataset.id
+    let posts = page.data.posts
+    // let selected_post = this.data.posts.find(o => o.id === post_id);
+    let post = posts.find(p => post_id === p.id)
+    post.comment_toggle = !post.comment_toggle
+    page.setData({posts: posts})
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
@@ -34,7 +44,13 @@ Page({
       url: 'http://localhost:3000/api/v1/posts',
       success: function(res) {
         console.log(res)
-        page.setData(res.data)
+        page.setData({posts: res.data.posts})
+        let posts = page.data.posts
+        posts = posts.map(p => {
+          p['comment_toggle'] = false
+          return p
+        })
+        page.setData({posts: posts})
       }
     })
   },
