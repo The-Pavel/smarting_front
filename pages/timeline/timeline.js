@@ -21,6 +21,9 @@ Page({
       data: post,
       success: function(res) {
         console.log(res)
+        wx.reLaunch({
+          url: '/pages/timeline/timeline',
+        })
       }
     })
   },
