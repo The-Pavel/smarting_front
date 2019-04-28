@@ -12,6 +12,29 @@ Page({
     this.setData({image_selected: false, text_added: false, search_done: false})
   },
 
+  send_comment: function(e) {
+    let page = this
+    let submit_event = e
+    let text = e.detail.value
+    let post_id = e.currentTarget.dataset.id
+    wx.request({
+      url: 'http://localhost:3000/api/v1/comments',
+      method: 'POST',
+      data: {text: text, post_id: post_id},
+      success: function(res) {
+        console.log(res)
+        wx.showToast({
+          title: 'Commented!',
+          icon: 'success',
+          duration: 2000,
+          complete: function(e) {
+            page.toggle_comments(submit_event)
+          }
+          })   
+      }
+    })
+  },
+
   create_post: function(e) {
     let page = this
     let post = {image: page.data.selected_image.webformatURL, content: page.data.user_content}

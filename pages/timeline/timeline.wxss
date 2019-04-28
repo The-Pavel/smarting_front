@@ -45,8 +45,9 @@
 .comment_count {
   font-size: 24rpx;
   position: absolute;
-  bottom: 20rpx;
+  bottom: 10rpx;
   right: 20rpx;
+  height: 40rpx;
 }
 
 .comment_section {
