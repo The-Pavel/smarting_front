@@ -93,6 +93,10 @@
 
 .image_search {
   margin-top: 30rpx;
+  border-bottom: 6rpx solid whitesmoke;
+  background-color: aliceblue;
+  height: 70rpx;
+  text-align: center;
 }
 
 input {
