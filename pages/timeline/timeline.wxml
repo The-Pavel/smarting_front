@@ -30,9 +30,9 @@
     <view wx:if="{{post.comment_toggle}}">
       <view class='comment_section'>
       <block wx:for="{{post.comments}}" wx:for-item="comment" wx:key="id">
-        <view  bindtap='toggle_comments' data-id='{{post.id}}'>{{comment.name}}: {{comment.text}}</view>
+        <view  class='comment_line' bindtap='toggle_comments' data-id='{{post.id}}'>{{comment.name}}: {{comment.text}}</view>
       </block>
-      <input data-id='{{post.id}}' bindconfirm='send_comment' placeholder='Leave a comment'></input>
+      <input class='comment_input' data-id='{{post.id}}' bindconfirm='send_comment' placeholder='Leave a comment'></input>
       </view>
     </view>
   </view>

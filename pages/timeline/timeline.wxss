@@ -49,21 +49,50 @@
   right: 20rpx;
   height: 40rpx;
 }
+.comment_input {
+  background: white;
+  width: 102% !important;
+  margin-left: -2% !important;
+  animation: 1s 1 appear;
+}
+
+.comment_line {
+  animation: 1s 1 appear;
+}
 
 .comment_section {
   position: absolute;
-  bottom: 0;
+  top: -40rpx;
   font-size: 24rpx;
   text-align: left;
   color: gray;
   z-index: 1000000000;
-  background-color: white;
-  margin-bottom: -98rpx !important;
-  width: 97% !important;
-  padding-left: 3%;
+  background-color: aliceblue;
+  width: 98% !important;
+  padding-left: 2%;
   left: 0;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
   border-radius: 0 0 5rpx 5rpx;
+  animation: 0.5s 1 slidedown;
+  transform: translateY(390rpx) !important;
+}
+
+@keyframes slidedown {
+  from {
+    height: 50rpx;
+  }
+  to {
+    height: 300rpx;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .created_card {
