@@ -37,7 +37,7 @@ Page({
 
   create_post: function(e) {
     let page = this
-    let post = {image: page.data.selected_image.webformatURL, content: page.data.user_content}
+    let post = {image: page.data.selected_image.images.original.url, content: page.data.user_content}
     wx.request({
       url: 'http://localhost:3000/api/v1/posts',
       method: 'POST',
@@ -76,7 +76,7 @@ Page({
           p['comment_toggle'] = false
           return p
         })
-        page.setData({posts: posts})
+        page.setData({posts: posts.reverse()})
       }
     })
   },
@@ -152,21 +152,37 @@ Page({
   },
 
   image_search: function(e) {
+    // PIXABAY IMAGE SEARCH
+  //   let page = this
+  //   page.setData({ search_done: true })
+  //   const pixabay_api = '12270710-587eb84d408349f72b29f4158';
+  //   const pixabay_url = "https://pixabay.com/api/?key=" + pixabay_api + "&q=" + encodeURIComponent(e.detail.value);
+  //   wx.request({
+  //     url: pixabay_url,
+  //     success: function(res) {
+  //       let images = res.data.hits
+  //       images.sort(function (a, b) {
+  //         let x = a["likes"]; let y = b["likes"];
+  //         return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+  //       });
+  //       console.log(images)
+  //       page.setData({searched_images: images})
+  //     }
+  //   })
+  // GIPHY IMAGE SEARCH
     let page = this
     page.setData({ search_done: true })
-    const pixabay_api = '12270710-587eb84d408349f72b29f4158';
-    const pixabay_url = "https://pixabay.com/api/?key=" + pixabay_api + "&q=" + encodeURIComponent(e.detail.value);
+    const giphy_api = '2r4EOUsY6HmplARSLRFuOw1PunnjnSI4'
+    const giphy_endpoint = 'https://api.giphy.com/v1/gifs/search'
+    let data = {api_key: giphy_api, q: e.detail.value}
     wx.request({
-      url: pixabay_url,
+      url: giphy_endpoint,
+      method: 'GET',
+      data: data,
       success: function(res) {
-        let images = res.data.hits
-        images.sort(function (a, b) {
-          let x = a["likes"]; let y = b["likes"];
-          return ((x < y) ? 1 : ((x > y) ? -1 : 0));
-        });
-        console.log(images)
-        page.setData({searched_images: images})
+        console.log(res.data.data)
+        page.setData({ searched_images: res.data.data })
       }
     })
-  }
+   }
 })

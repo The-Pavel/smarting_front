@@ -79,10 +79,10 @@
 
 @keyframes slidedown {
   from {
-    height: 50rpx;
+    height: 0rpx;
   }
   to {
-    height: 300rpx;
+    height: auto;
   }
 }
 

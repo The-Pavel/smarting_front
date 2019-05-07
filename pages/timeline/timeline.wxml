@@ -3,10 +3,10 @@
   <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
 
   <view wx:if="{{image_selected && !text_added}}">
-    <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.webformatURL}}'></image>
+    <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>
   </view>
 
-  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{selected_image.webformatURL}})">
+  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{selected_image.images.original.url}})">
   {{user_content}}
   </view>
 
@@ -19,7 +19,7 @@
 
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
-      <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.webformatURL}}'/>
+      <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.images.original.url}}'/>
     </view>
   </view>  
 
