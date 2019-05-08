@@ -6,8 +6,9 @@ Page({
    */
   
   data: {
-    arr: [1, 2, 3, 4, 5, 6, 7, 8],
-    index: 1,
+    arr: [1,2,3,4,5,6,7,8],
+    filtering: false,
+    filter: "",
     search_done: false,
   },
 
@@ -94,7 +95,11 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    let page = this
+    if (page.data.filter != "") {
+      let filtered = page.data.posts.filter(post => post.searched == page.data.filter)
+      page.setData({filtered_posts: filtered})
+    }
   },
 
   /**
@@ -195,11 +200,17 @@ Page({
       }
     })
    },
-  // scrollview method
+  // scrollview filter method method
   tabOn: function (e) {
-    console.log(e)
-    this.setData({
-      index: e.currentTarget.dataset.index + 1
-    });
+    // condition for checking whether filter is already on and whether event is a switch between tags or turning filter off
+    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag)) {
+      this.setData({
+        filter: e.currentTarget.dataset.tag
+      });
+      this.setData({ filtering: true })
+      this.onReady()
+    } else {
+      this.setData({filtering: false})
+    }
   }
 })
