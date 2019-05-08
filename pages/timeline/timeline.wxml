@@ -1,6 +1,6 @@
 <!--pages/timeline/timeline.wxml-->
 
-  <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='20' bindconfirm='image_search'></input>
+  <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
 
   <view wx:if="{{image_selected && !text_added}}">
     <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>

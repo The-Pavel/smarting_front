@@ -37,7 +37,7 @@ Page({
 
   create_post: function(e) {
     let page = this
-    let post = {image: page.data.selected_image.images.original.url, content: page.data.user_content}
+    let post = {image: page.data.selected_image.images.original.url, content: page.data.user_content, searched: page.data.searched}
     wx.request({
       url: 'http://localhost:3000/api/v1/posts',
       method: 'POST',
@@ -171,6 +171,7 @@ Page({
   //   })
   // GIPHY IMAGE SEARCH
     let page = this
+    page.setData({searched: e.detail.value})
     page.setData({ search_done: true })
     const giphy_api = '2r4EOUsY6HmplARSLRFuOw1PunnjnSI4'
     const giphy_endpoint = 'https://api.giphy.com/v1/gifs/search'
