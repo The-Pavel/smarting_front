@@ -6,6 +6,9 @@ Page({
    */
   
   data: {
+    arr: [1,2,3,4,5,6,7,8],
+    filtering: false,
+    filter: "",
     search_done: false,
   },
 
@@ -67,6 +70,9 @@ Page({
    */
   onLoad: function (options) {
     let page = this
+    page.setData({
+      childW: page.data.arr.length * 80
+    });
     wx.request({
       url: 'http://localhost:3000/api/v1/posts',
       success: function(res) {
@@ -77,7 +83,10 @@ Page({
           p['comment_toggle'] = false
           return p
         })
-        page.setData({posts: posts.reverse()})
+        let hot_conversations = posts.map(p => {
+          return p.searched
+        })
+        page.setData({posts: posts.reverse(), arr: hot_conversations})
       }
     })
   },
@@ -86,7 +95,11 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    let page = this
+    if (page.data.filter != "") {
+      let filtered = page.data.posts.filter(post => post.searched == page.data.filter)
+      page.setData({filtered_posts: filtered})
+    }
   },
 
   /**
@@ -186,5 +199,18 @@ Page({
         page.setData({ searched_images: res.data.data })
       }
     })
-   }
+   },
+  // scrollview filter method method
+  tabOn: function (e) {
+    // condition for checking whether filter is already on and whether event is a switch between tags or turning filter off
+    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag)) {
+      this.setData({
+        filter: e.currentTarget.dataset.tag
+      });
+      this.setData({ filtering: true })
+      this.onReady()
+    } else {
+      this.setData({filtering: false})
+    }
+  }
 })

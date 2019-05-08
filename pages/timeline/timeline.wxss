@@ -133,3 +133,25 @@
 input {
   text-align: center;
 }
+
+.trending_title {
+  text-align: center;
+  padding: 20rpx 0 ;
+  font-size: 30rpx;
+  color: cornflowerblue;
+  
+}
+
+/* scrollview css */
+.tab{
+ height: 50px;
+ width: auto;
+ padding: 0 30rpx;
+ display: inline-block;
+ text-align: center;
+ line-height: 50px;
+}
+
+.tab:nth-child(odd){
+ background-color:aliceblue;
+}
