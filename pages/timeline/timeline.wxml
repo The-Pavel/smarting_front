@@ -21,7 +21,11 @@
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
       <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.images.original.url}}'/>
     </view>
-  </view>  
+  </view>
+
+  <view class='trending_section'>
+    <view style='text-align: center;'>HOT CONVERSATIONS</view>
+  </view>
 
 <view class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
   <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">

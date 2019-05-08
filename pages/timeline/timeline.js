@@ -4,8 +4,9 @@ Page({
   /**
    * Page initial data
    */
+  
   data: {
-    search_done: false
+    search_done: false,
   },
 
   start_over: function(e) {
