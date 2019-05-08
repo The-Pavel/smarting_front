@@ -25,6 +25,13 @@
 
   <view class='trending_section'>
     <view style='text-align: center;'>HOT CONVERSATIONS</view>
+    <scroll-view scroll-x scroll-with-animation='true'>
+      <view style='width: {{ childW }}px'>
+        <block wx:for='{{ arr }}'>
+          <view class='tab' catchtap='tabOn' data-tag='{{ arr[index] }}'>{{ item }}</view>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 
 <view class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">

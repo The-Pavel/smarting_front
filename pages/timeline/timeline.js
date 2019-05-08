@@ -6,6 +6,8 @@ Page({
    */
   
   data: {
+    arr: [1, 2, 3, 4, 5, 6, 7, 8],
+    index: 1,
     search_done: false,
   },
 
@@ -67,6 +69,9 @@ Page({
    */
   onLoad: function (options) {
     let page = this
+    page.setData({
+      childW: page.data.arr.length * 80
+    });
     wx.request({
       url: 'http://localhost:3000/api/v1/posts',
       success: function(res) {
@@ -77,7 +82,10 @@ Page({
           p['comment_toggle'] = false
           return p
         })
-        page.setData({posts: posts.reverse()})
+        let hot_conversations = posts.map(p => {
+          return p.searched
+        })
+        page.setData({posts: posts.reverse(), arr: hot_conversations})
       }
     })
   },
@@ -186,5 +194,12 @@ Page({
         page.setData({ searched_images: res.data.data })
       }
     })
-   }
+   },
+  // scrollview method
+  tabOn: function (e) {
+    console.log(e)
+    this.setData({
+      index: e.currentTarget.dataset.index + 1
+    });
+  }
 })
