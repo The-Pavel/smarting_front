@@ -85,7 +85,7 @@ Page({
           return p
         })
         let hot_conversations = posts.map(p => {
-          return p.searched
+          return p.searched.toUpperCase()
         })
         page.setData({posts: posts.reverse(), arr: hot_conversations})
       }
@@ -205,10 +205,10 @@ Page({
   tabOn: function (e) {
     // condition for checking whether filter is already on and whether event is a switch between tags or turning filter off
     // console.log(e.currentTarget.dataset.id)
-    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag)) {
+    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag.toLowerCase())) {
       this.setData({
         TabCur: e.currentTarget.dataset.id,
-        filter: e.currentTarget.dataset.tag
+        filter: e.currentTarget.dataset.tag.toLowerCase()
       });
       this.setData({ filtering: true })
       this.onReady()

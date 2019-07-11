@@ -28,19 +28,19 @@
   background-position: center;
   background-repeat: no-repeat;
   background-color: black;
-  height: 300rpx;
+  height: 340rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  width: 90vw;
+  width: 94vw;
   padding: 20rpx;
   font-size: 42rpx;
   font-weight: bold;
   text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
   border-radius: 5rpx;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
-  margin: 40rpx 1% 0 1%;
+  margin: 30rpx 1% 0 1%;
   position: relative;
 }
 
@@ -141,6 +141,12 @@ input {
   
 } 
 
+/* .a-tab {
+  margin: 0 0 !important;
+  padding: 0 40rpx !important;
+  border-right: #39b54a 3rpx solid;
+} */
+
 .trending_title {
   text-align: center;
   padding: 20rpx 0 ;
@@ -151,14 +157,12 @@ input {
 
 /* scrollview css */
 .tab{
- height: 50px;
- width: auto;
- padding: 0 30rpx;
- display: inline-block;
- text-align: center;
- line-height: 50px;
+ margin: 0 0 !important;
+ padding: 0 40rpx !important;
+ /* color: black !important; */
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tab:nth-child(odd){
- background-color:aliceblue;
+ background-color: #d2f1f0;
 }

@@ -1,6 +1,6 @@
 <!--pages/timeline/timeline.wxml-->
 <!-- code for using ColorUI custom navbar -->
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
     <view slot="backText">Back</view>
     <view slot="content">The Board</view>
 </cu-custom>
@@ -11,7 +11,7 @@
     <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>
   </view>
 
-  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{selected_image.images.original.url}})">
+  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
   {{user_content}}
   </view>
 
@@ -30,30 +30,22 @@
 
 
   <view class='trending_section'>
-    <view class="cu-bar bg-orange solid-bottom">
-  <view class="action text-white">
-    <text class="cuIcon-titles text-white"></text> 
-    Hot Conversations
-  </view>
-</view>
-
-  <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-  <view class="cu-item {{ index==TabCur?'text-green cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
-    {{ item }}
-  </view>
-</scroll-view>
-
-    <!-- <scroll-view scroll-x scroll-with-animation='true'>
-      <view style='width: {{ childW }}px'>
-        <block wx:for='{{ arr }}'>
-          <view class='tab' catchtap='tabOn' data-tag='{{ arr[index] }}'>{{ item }}</view>
-        </block>
+    <view class="cu-bar bg-cyan solid-bottom">
+      <view class="action text-white">
+        <text class="cuIcon-hot lg text-white"></text>
+        Hot Conversations 
       </view>
-    </scroll-view> -->
-  </view>
+    </view>
+
+    <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{ {scrollLeft}}">
+      <view class="tab cu-item text-bold {{ index==TabCur?'text-black cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
+        {{ item }}
+      </view>
+    </scroll-view>
+ </view>
 
 <view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">
+  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
   {{post.content}}
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
     <view wx:if="{{post.comment_toggle}}">
@@ -67,9 +59,9 @@
   </view>
 </view>
 
-<view wx:if="{{filtering}}" class='trending_title'>#{{filter}}</view>
+
 <view wx:if="{{filtering}}" class="timeline" wx:for="{{filtered_posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">
+  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
   {{post.content}}
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
     <view wx:if="{{post.comment_toggle}}">
