@@ -1,6 +1,11 @@
 <!--pages/timeline/timeline.wxml-->
+<!-- code for using ColorUI custom navbar -->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">Back</view>
+    <view slot="content">The Board</view>
+</cu-custom>
 
-  <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
+  <input class="cu-bar bg-white solid-bottom cuIcon-title text-green input text-left padding" bindfocus="remove_search" placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
 
   <view wx:if="{{image_selected && !text_added}}">
     <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>
@@ -10,7 +15,7 @@
   {{user_content}}
   </view>
 
-  <input class='image_search' placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
+  <input class="cu-bar bg-white solid-bottom cuIcon-title text-green input text-left padding" placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
   <view wx:if='{{text_added && image_selected}}' class="button_box">
     <button type='default' bindtap='start_over'>Start over</button>
@@ -23,15 +28,28 @@
     </view>
   </view>
 
+
   <view class='trending_section'>
-    <view class='trending_title' >Hot Conversations</view>
-    <scroll-view scroll-x scroll-with-animation='true'>
+    <view class="cu-bar bg-orange solid-bottom">
+  <view class="action text-white">
+    <text class="cuIcon-titles text-white"></text> 
+    Hot Conversations
+  </view>
+</view>
+
+  <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{ index==TabCur?'text-green cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
+    {{ item }}
+  </view>
+</scroll-view>
+
+    <!-- <scroll-view scroll-x scroll-with-animation='true'>
       <view style='width: {{ childW }}px'>
         <block wx:for='{{ arr }}'>
           <view class='tab' catchtap='tabOn' data-tag='{{ arr[index] }}'>{{ item }}</view>
         </block>
       </view>
-    </scroll-view>
+    </scroll-view> -->
   </view>
 
 <view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">

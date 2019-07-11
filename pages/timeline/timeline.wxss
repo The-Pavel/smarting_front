@@ -119,20 +119,27 @@
 
 .search_place {
   font-style: italic;
-  text-align: center;
+  text-align: left !important;
+  padding-left: 20rpx;
+  overflow: visible;
+  transform: translateY(5rpx);
 }
 
+/* 
 .image_search {
   margin-top: 30rpx;
   border-bottom: 6rpx solid whitesmoke;
   background-color: aliceblue;
   height: 70rpx;
   text-align: center;
-}
+} */
 
 input {
-  text-align: center;
-}
+  vertical-align: middle !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  
+} 
 
 .trending_title {
   text-align: center;
