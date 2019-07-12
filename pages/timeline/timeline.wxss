@@ -23,6 +23,11 @@
   align-items: center;
 }
 
+.put-in-front {
+  color: azure;
+  text-shadow: 1px 1px 1px black;
+}
+
 .card-category {
   background-size: contain;
   background-position: center;
@@ -98,14 +103,16 @@
 }
 
 .created_card {
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  height: 300rpx;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 340rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  width: 90vw;
+  width: 94vw;
   padding: 20rpx;
   font-size: 42rpx;
   font-weight: bold;
@@ -113,16 +120,40 @@
   border-radius: 5rpx;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
   margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 3.5%;
+  border: 5rpx solid lightblue;
+}
+
+.selected_image {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  height: 340rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 94vw;
+  padding: 20rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+  text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
+  border-radius: 5rpx;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
   margin-left: 3.5%;
   border: 5rpx solid lightblue;
 }
 
 .search_place {
   font-style: italic;
-  text-align: left !important;
-  padding-left: 20rpx;
+  /* padding-left: 80rpx; */
   overflow: visible;
-  transform: translateY(5rpx);
+  transform: translateY(6rpx) translateX(-60rpx);
+  font-size: 30rpx;
 }
 
 /* 
@@ -134,12 +165,18 @@
   text-align: center;
 } */
 
+.trending-section {
+  align-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
 input {
   vertical-align: middle !important;
-  text-align: left !important;
-  justify-content: flex-start !important;
-  
-} 
+  text-align: center !important;
+  /* justify-content: flex-start !important; */
+  font-size: 40rpx !important;
+}
 
 /* .a-tab {
   margin: 0 0 !important;
@@ -152,7 +189,6 @@ input {
   padding: 20rpx 0 ;
   font-size: 30rpx;
   color: cornflowerblue;
-  
 }
 
 /* scrollview css */

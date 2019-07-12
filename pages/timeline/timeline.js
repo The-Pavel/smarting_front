@@ -87,7 +87,8 @@ Page({
         let hot_conversations = posts.map(p => {
           return p.searched.toUpperCase()
         })
-        page.setData({posts: posts.reverse(), arr: hot_conversations})
+        let unique_hot_conversations = [...new Set(hot_conversations)];
+        page.setData({posts: posts.reverse(), arr: unique_hot_conversations})
       }
     })
   },
@@ -158,6 +159,9 @@ Page({
     let selected_image = this.data.searched_images.find(o => o.id === image_id);
     console.log(selected_image)
     page.setData({selected_image: selected_image, image_selected: true})
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
   },
 
   add_text: function(e) {

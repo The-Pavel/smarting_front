@@ -5,17 +5,19 @@
     <view slot="content">The Board</view>
 </cu-custom>
 
-  <input class="cu-bar bg-white solid-bottom cuIcon-title text-green input text-left padding" bindfocus="remove_search" placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
+  <!-- block for the search and hashtag input -->
+  <input class="cu-bar bg-white solid-bottom lg cuIcon-right text-cyan input text-left padding" bindfocus="remove_search" placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
 
+  <!-- block for when image selected but no text added -->
   <view wx:if="{{image_selected && !text_added}}">
-    <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>
+    <view class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
+      <input placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='100' bindconfirm='add_text'></input>
+    </view>
   </view>
 
   <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
   {{user_content}}
   </view>
-
-  <input class="cu-bar bg-white solid-bottom cuIcon-title text-green input text-left padding" placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
   <view wx:if='{{text_added && image_selected}}' class="button_box">
     <button type='default' bindtap='start_over'>Start over</button>
@@ -24,15 +26,15 @@
 
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
-      <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.images.original.url}}'/>
+      <view data-id='{{image.id}}' class='card-category' bindtap="select_image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url({{image.images.original.url}})"/>
     </view>
   </view>
 
 
-  <view class='trending_section'>
+  <view>
     <view class="cu-bar bg-cyan solid-bottom">
-      <view class="action text-white">
-        <text class="cuIcon-hot lg text-white"></text>
+      <view class="action text-white trending-section">
+        <text class="cuIcon-hot lg text-yellow"></text>
         Hot Conversations 
       </view>
     </view>
