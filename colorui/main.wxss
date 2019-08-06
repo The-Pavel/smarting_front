@@ -2003,7 +2003,7 @@ button.icon.lg {
 }
 
 .nav .cu-item.cur {
-	border-bottom: 4rpx solid;
+	border-bottom: 7rpx solid;
 }
 
 /* ==================
@@ -3811,7 +3811,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .text-ABC {
-	text-transform: Uppercase;
+	text-transform: uppercase !important;
 }
 
 .text-abc {

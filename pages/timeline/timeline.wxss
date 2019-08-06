@@ -152,7 +152,7 @@
   font-style: italic;
   /* padding-left: 80rpx; */
   overflow: visible;
-  transform: translateY(6rpx) translateX(-60rpx);
+  transform: translateY(6rpx) translateX(-28rpx);
   font-size: 30rpx;
 }
 
@@ -196,7 +196,7 @@ input {
  margin: 0 0 !important;
  padding: 0 40rpx !important;
  /* color: black !important; */
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 
 .tab:nth-child(odd){

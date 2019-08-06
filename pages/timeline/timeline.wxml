@@ -40,7 +40,7 @@
     </view>
 
     <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{ {scrollLeft}}">
-      <view class="tab cu-item text-bold {{ index==TabCur?'text-black cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
+      <view class="tab cu-item text-abc {{ index==TabCur?'text-red text-bold text-ABC cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
         {{ item }}
       </view>
     </scroll-view>
