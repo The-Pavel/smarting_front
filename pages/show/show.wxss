@@ -1,0 +1,10 @@
+page {
+  background-color: white;
+}
+.headline {
+  color: black;
+  padding: 0rpx 20rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+  text-align: center;
+}
