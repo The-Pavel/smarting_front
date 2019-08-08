@@ -35,6 +35,7 @@
   background-color: black;
   height: 340rpx;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
