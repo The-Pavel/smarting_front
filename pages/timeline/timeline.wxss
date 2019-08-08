@@ -152,8 +152,9 @@
   font-style: italic;
   /* padding-left: 80rpx; */
   overflow: visible;
-  transform: translateY(6rpx) translateX(-28rpx);
+  transform: translateY(6rpx);
   font-size: 30rpx;
+  text-align: center !important;
 }
 
 /* 
@@ -172,9 +173,7 @@
 }
 
 input {
-  vertical-align: middle !important;
-  text-align: center !important;
-  /* justify-content: flex-start !important; */
+  text-align: left !important;
   font-size: 40rpx !important;
 }
 

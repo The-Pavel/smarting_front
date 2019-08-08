@@ -13,6 +13,12 @@ Page({
     TabCur: null,
   },
 
+  goToShow: function(e) {
+    wx.navigateTo({
+      url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
   start_over: function(e) {
     this.setData({image_selected: false, text_added: false, search_done: false})
   },

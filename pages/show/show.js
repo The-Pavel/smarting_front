@@ -5,21 +5,27 @@ Page({
    * Page initial data
    */
   data: {
-    
+    timer_seconds: 0
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    let page = this
+    wx.request({
+      url: `http://localhost:3000/api/v1/posts/${options.id}`,
+      success: function(res) {
+        page.setData(res.data)
+      }
+    })
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady: function () {
-
+    
   },
 
   /**

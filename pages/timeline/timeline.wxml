@@ -47,7 +47,7 @@
  </view>
 
 <view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
+  <view bindtap="goToShow" data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
   {{post.content}}
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
     <view wx:if="{{post.comment_toggle}}">
