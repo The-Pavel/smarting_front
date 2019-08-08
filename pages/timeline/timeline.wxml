@@ -51,14 +51,6 @@
       <view>{{post.content}}</view>
       <view class="text-sm text-white" style="font-weight: lighter; opacity: 0.7; margin-top: 10rpx;">#{{post.searched}}</view>
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
-    <view wx:if="{{post.comment_toggle}}">
-      <view class='comment_section'>
-      <block wx:for="{{post.comments}}" wx:for-item="comment" wx:key="id">
-        <view  class='comment_line' bindtap='toggle_comments' data-id='{{post.id}}'>{{comment.name}}: {{comment.text}}</view>
-      </block>
-      <input class='comment_input' data-id='{{post.id}}' bindconfirm='send_comment' placeholder='Leave a comment'></input>
-      </view>
-    </view>
   </view>
 </view>
 
