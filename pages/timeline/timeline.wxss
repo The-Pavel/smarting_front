@@ -158,6 +158,11 @@
   text-align: center !important;
 }
 
+input {
+  text-align: left !important;
+  font-size: 40rpx !important;
+}
+
 /* 
 .image_search {
   margin-top: 30rpx;
@@ -173,10 +178,7 @@
   width: 100% !important;
 }
 
-input {
-  text-align: left !important;
-  font-size: 40rpx !important;
-}
+
 
 /* .a-tab {
   margin: 0 0 !important;

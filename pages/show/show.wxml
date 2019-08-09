@@ -30,3 +30,9 @@
   </view>
  
 </view>
+  
+    <textarea name='text' class="text-sm padding-top cu-bar bg-white solid-bottom" bindinput="get_text" placeholder='✎ What do you think?' placeholder-class='text-cyan text-lg padding-left-xl'><cover-button bindtap="send_comment" class="cu-btn bg-cyan comment-button">Send</cover-button></textarea>
+
+  
+
+

@@ -21,6 +21,33 @@ Page({
     })
   },
 
+  send_comment: function (e) {
+    let page = this
+    let post_id = page.data.id
+    wx.request({
+      url: 'http://localhost:3000/api/v1/comments',
+      method: 'POST',
+      data: { text: page.data.text, post_id: post_id },
+      success: function (res) {
+        wx.request({
+          url: `http://localhost:3000/api/v1/posts/${post_id}`,
+          success: function (res) {
+            page.setData(res.data)
+            wx.showToast({
+              title: 'Commented!',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        })
+      }
+    })
+  },
+
+  get_text: function(e) {
+    this.setData({text: e.detail.value})
+  },
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */

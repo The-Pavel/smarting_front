@@ -8,3 +8,31 @@ page {
   font-weight: bold;
   text-align: center;
 }
+
+.search_place {
+  font-style: italic;
+  overflow: visible;
+  font-size: 30rpx;
+  /* transform: translateY(50rpx); */
+}
+
+textarea {
+  /* text-align: right !important; */
+  font-size: 30rpx !important;
+  align-items: flex-start !important;
+  padding-left: 50rpx !important;
+  width: 88vw;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  margin-left: 60rpx;
+  border-radius: 0rpx 8rpx 8rpx 8rpx;
+  position: relative;
+  /* z-index: -1; */
+}
+
+.comment-button {
+  position: absolute;
+  bottom: 15rpx;
+  right: 15rpx;
+  border-radius: 8rpx !important;
+  z-index: 10000000000;
+}
