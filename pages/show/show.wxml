@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">Back</view>
+    <view slot="content">#{{searched}}</view>
+</cu-custom>
+
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="{{image}}" mode="widthFix">
+      </image>
+    </view>
+  </view>
+</view>
+<view class='headline'>{{content}}</view>
+
+
+  <view class="cu-tag radius margin">{{date}}</view>
+  <view wx:for="{{comments}}" wx:for-item="comment" wx:key>
+    <view class="cu-timeline">
+     <view class="cu-item">
+      <view class="content">
+        <view class="cu-capsule radius">
+          <view class="cu-tag bg-cyan">{{comment.date}}</view>
+          <view class="cu-tag line-cyan">{{comment.name}}</view>
+        </view>
+        <view class="margin-top">{{comment.text}}
+        </view>
+      </view>
+    </view>
+  </view>
+ 
+</view>
+  
+    <textarea name='text' class="text-sm padding-top cu-bar bg-white solid-bottom" bindinput="get_text" placeholder='✎ What do you think?' placeholder-class='text-cyan text-lg padding-left-xl'><cover-button bindtap="send_comment" class="cu-btn bg-cyan comment-button">Send</cover-button></textarea>
+
+  
+
+

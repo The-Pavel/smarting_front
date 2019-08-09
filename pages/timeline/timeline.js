@@ -10,6 +10,13 @@ Page({
     filtering: false,
     filter: "",
     search_done: false,
+    TabCur: null,
+  },
+
+  goToShow: function(e) {
+    wx.navigateTo({
+      url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
+    })
   },
 
   start_over: function(e) {
@@ -84,9 +91,10 @@ Page({
           return p
         })
         let hot_conversations = posts.map(p => {
-          return p.searched
+          return p.searched.toUpperCase()
         })
-        page.setData({posts: posts.reverse(), arr: hot_conversations})
+        let unique_hot_conversations = [...new Set(hot_conversations)];
+        page.setData({posts: posts.reverse(), arr: unique_hot_conversations})
       }
     })
   },
@@ -157,6 +165,9 @@ Page({
     let selected_image = this.data.searched_images.find(o => o.id === image_id);
     console.log(selected_image)
     page.setData({selected_image: selected_image, image_selected: true})
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
   },
 
   add_text: function(e) {
@@ -203,14 +214,16 @@ Page({
   // scrollview filter method method
   tabOn: function (e) {
     // condition for checking whether filter is already on and whether event is a switch between tags or turning filter off
-    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag)) {
+    // console.log(e.currentTarget.dataset.id)
+    if ((this.data.filtering == false) || (this.data.filtering == true && this.data.filter != e.currentTarget.dataset.tag.toLowerCase())) {
       this.setData({
-        filter: e.currentTarget.dataset.tag
+        TabCur: e.currentTarget.dataset.id,
+        filter: e.currentTarget.dataset.tag.toLowerCase()
       });
       this.setData({ filtering: true })
       this.onReady()
     } else {
-      this.setData({filtering: false})
+      this.setData({filtering: false, TabCur: null})
     }
   }
 })

@@ -1,16 +1,23 @@
 <!--pages/timeline/timeline.wxml-->
+<!-- code for using ColorUI custom navbar -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="backText">Back</view>
+    <view slot="content">The Board</view>
+</cu-custom>
 
-  <input bindfocus="remove_search" class='image_search' placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
+  <!-- block for the search and hashtag input -->
+  <input class="cu-bar bg-white solid-bottom lg cuIcon-right text-cyan input text-left padding" bindfocus="remove_search" placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
 
+  <!-- block for when image selected but no text added -->
   <view wx:if="{{image_selected && !text_added}}">
-    <image class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" src='{{selected_image.images.original.url}}'></image>
+    <view class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
+      <input placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='100' bindconfirm='add_text'></input>
+    </view>
   </view>
 
-  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{selected_image.images.original.url}})">
+  <view wx:if="{{image_selected && text_added}}" class="created_card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
   {{user_content}}
   </view>
-
-  <input class='image_search' placeholder='Share your thoughts with the world' placeholder-class='search_place' maxlength='100' bindconfirm='add_text'></input>
 
   <view wx:if='{{text_added && image_selected}}' class="button_box">
     <button type='default' bindtap='start_over'>Start over</button>
@@ -19,39 +26,37 @@
 
   <view wx:if="{{search_done}}">
     <view class="timeline" wx:for="{{searched_images}}" wx:for-item="image" wx:key="id">
-      <image data-id='{{image.id}}' class='card-category' bindtap="select_image" src='{{image.images.original.url}}'/>
+      <view data-id='{{image.id}}' class='card-category' bindtap="select_image" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url({{image.images.original.url}})"/>
     </view>
   </view>
 
-  <view class='trending_section'>
-    <view class='trending_title' >Hot Conversations</view>
-    <scroll-view scroll-x scroll-with-animation='true'>
-      <view style='width: {{ childW }}px'>
-        <block wx:for='{{ arr }}'>
-          <view class='tab' catchtap='tabOn' data-tag='{{ arr[index] }}'>{{ item }}</view>
-        </block>
+
+  <view>
+    <view class="cu-bar bg-cyan solid-bottom">
+      <view class="action text-white trending-section">
+        <text class="cuIcon-hot lg text-yellow"></text>
+        Hot Conversations 
+      </view>
+    </view>
+
+    <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{ {scrollLeft}}">
+      <view class="tab cu-item text-abc {{ index==TabCur?'text-red text-bold text-ABC cur':''}}" wx:for="{{ arr }}" catchtap='tabOn' data-tag='{{ arr[index] }}' data-id="{{index}}">
+        {{ item }}
       </view>
     </scroll-view>
-  </view>
+ </view>
 
 <view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">
-  {{post.content}}
+  <view bindtap="goToShow" data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
+      <view>{{post.content}}</view>
+      <view class="text-sm text-white" style="font-weight: lighter; opacity: 0.7; margin-top: 10rpx;">#{{post.searched}}</view>
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
-    <view wx:if="{{post.comment_toggle}}">
-      <view class='comment_section'>
-      <block wx:for="{{post.comments}}" wx:for-item="comment" wx:key="id">
-        <view  class='comment_line' bindtap='toggle_comments' data-id='{{post.id}}'>{{comment.name}}: {{comment.text}}</view>
-      </block>
-      <input class='comment_input' data-id='{{post.id}}' bindconfirm='send_comment' placeholder='Leave a comment'></input>
-      </view>
-    </view>
   </view>
 </view>
 
-<view wx:if="{{filtering}}" class='trending_title'>#{{filter}}</view>
+
 <view wx:if="{{filtering}}" class="timeline" wx:for="{{filtered_posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url({{post.image}})">
+  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
   {{post.content}}
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
     <view wx:if="{{post.comment_toggle}}">
