@@ -1,7 +1,6 @@
 <!--pages/timeline/timeline.wxml-->
 <!-- code for using ColorUI custom navbar -->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-    <view slot="backText">Back</view>
     <view slot="content">The Board</view>
 </cu-custom>
 
@@ -11,7 +10,7 @@
   <!-- block for when image selected but no text added -->
   <view wx:if="{{image_selected && !text_added}}">
     <view class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
-      <input placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='100' bindconfirm='add_text'></input>
+      <textarea placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='50' bindconfirm='add_text'></textarea>
     </view>
   </view>
 

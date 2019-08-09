@@ -1,13 +1,12 @@
 <!--index.wxml-->
+
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="content">Welcome, friend...</view>
+</cu-custom>
+
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> Who are you? </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    <button class='button text-black text-bold' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> click here to vent </button>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+ 
 </view>

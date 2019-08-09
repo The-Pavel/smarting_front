@@ -40,14 +40,15 @@
   align-items: center;
   color: white;
   width: 94vw;
-  padding: 20rpx;
+  padding: 40rpx;
   font-size: 42rpx;
   font-weight: bold;
   text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
-  border-radius: 5rpx;
+  border-radius: 8rpx;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
   margin: 30rpx 1% 0 1%;
   position: relative;
+  text-align: center;
 }
 
 .comment_count {
@@ -114,7 +115,7 @@
   align-items: center;
   color: white;
   width: 94vw;
-  padding: 20rpx;
+  padding: 40rpx;
   font-size: 42rpx;
   font-weight: bold;
   text-shadow: 1rpx 1rpx 3rpx rgba(0,0,0,0.2);
@@ -124,6 +125,7 @@
   margin-bottom: 30rpx;
   margin-left: 3.5%;
   border: 5rpx solid lightblue;
+  text-align: center;
 }
 
 .selected_image {
@@ -146,7 +148,7 @@
   margin-top: 30rpx;
   margin-bottom: 30rpx;
   margin-left: 3.5%;
-  border: 5rpx solid lightblue;
+  border: 10rpx solid #d2f1f0;
 }
 
 .search_place {
@@ -158,8 +160,17 @@
   text-align: center !important;
 }
 
+textarea {
+  text-align: center !important;
+  font-size: 40rpx !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around !important;
+  height: 340rpx !important;
+}
+
 input {
-  text-align: left !important;
+  text-align: center !important;
   font-size: 40rpx !important;
 }
 

@@ -4,11 +4,17 @@
 @import "colorui/icon.wxss";
 
 .container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  /* padding-top: 200rpx; */
   box-sizing: border-box;
+  height: 100vh !important;
+  background-image: url(https://media.giphy.com/media/kUDSDNvKwrM2s/giphy.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  position: fixed;
+  bottom: 0;
 } 

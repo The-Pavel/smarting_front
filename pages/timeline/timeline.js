@@ -19,7 +19,7 @@ Page({
     })
   },
 
-  start_over: function(e) {
+  start_over: function() {
     this.setData({image_selected: false, text_added: false, search_done: false})
   },
 
@@ -61,17 +61,6 @@ Page({
       }
     })
   },
-
-  toggle_comments: function(e) {
-    let page = this
-    let post_id = e.currentTarget.dataset.id
-    let posts = page.data.posts
-    // let selected_post = this.data.posts.find(o => o.id === post_id);
-    let post = posts.find(p => post_id === p.id)
-    post.comment_toggle = !post.comment_toggle
-    page.setData({posts: posts})
-  },
-
   /**
    * Lifecycle function--Called when page load
    */
@@ -155,7 +144,7 @@ Page({
   },
 
   remove_search: function(e) {
-    this.setData({search_done: false})
+    this.start_over()
   },
 
   select_image: function(e) {
