@@ -73,17 +73,13 @@ Page({
       url: 'http://localhost:3000/api/v1/posts',
       success: function(res) {
         console.log(res)
-        page.setData({posts: res.data.posts})
-        let posts = page.data.posts
-        posts = posts.map(p => {
-          p['comment_toggle'] = false
-          return p
-        })
+        const posts = res.data.posts
+        page.setData({posts: posts})
         let hot_conversations = posts.map(p => {
           return p.searched.toUpperCase()
         })
         let unique_hot_conversations = [...new Set(hot_conversations)];
-        page.setData({posts: posts.reverse(), arr: unique_hot_conversations})
+        page.setData({arr: unique_hot_conversations})
       }
     })
   },

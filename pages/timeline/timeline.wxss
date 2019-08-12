@@ -1,10 +1,4 @@
 /* pages/timeline/timeline.wxss */
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
 
 .timeline {
   display: flex;
@@ -58,51 +52,6 @@
   right: 20rpx;
   height: 40rpx;
 }
-.comment_input {
-  background: white;
-  width: 102% !important;
-  margin-left: -2% !important;
-  animation: 1s 1 appear;
-}
-
-.comment_line {
-  animation: 1s 1 appear;
-}
-
-.comment_section {
-  position: absolute;
-  top: -40rpx;
-  font-size: 24rpx;
-  text-align: left;
-  color: gray;
-  z-index: 1000000000;
-  background-color: aliceblue;
-  width: 98% !important;
-  padding-left: 2%;
-  left: 0;
-  box-shadow: 0 0 15rpx rgba(0,0,0,0.2);
-  border-radius: 0 0 5rpx 5rpx;
-  animation: 0.5s 1 slidedown;
-  transform: translateY(390rpx) !important;
-}
-
-@keyframes slidedown {
-  from {
-    height: 0rpx;
-  }
-  to {
-    height: auto;
-  }
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .created_card {
   background-size: contain;
@@ -153,7 +102,6 @@
 
 .search_place {
   font-style: italic;
-  /* padding-left: 80rpx; */
   overflow: visible;
   transform: translateY(6rpx);
   font-size: 30rpx;

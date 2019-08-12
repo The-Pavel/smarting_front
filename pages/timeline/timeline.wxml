@@ -5,12 +5,12 @@
 </cu-custom>
 
   <!-- block for the search and hashtag input -->
-  <input class="cu-bar bg-white solid-bottom lg cuIcon-right text-cyan input text-left padding" bindfocus="remove_search" placeholder='What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
+  <input class="cu-bar bg-white solid-bottom lg text-cyan input padding" bindfocus="remove_search" placeholder='✎ What are you feeling today?' placeholder-class='search_place' maxlength='15' bindconfirm='image_search'></input>
 
   <!-- block for when image selected but no text added -->
   <view wx:if="{{image_selected && !text_added}}">
     <view class="created_card" data-id='{{selected_image.id}}' bindtap="unselect_image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{selected_image.images.original.url}})">
-      <textarea placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='50' bindconfirm='add_text'></textarea>
+      <textarea placeholder='Your thoughts go here' placeholder-class="put-in-front" maxlength='50' bindblur='add_text'></textarea>
     </view>
   </view>
 
@@ -45,7 +45,7 @@
     </scroll-view>
  </view>
 
-<view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key="id">
+<view wx:if="{{!filtering}}" class="timeline" wx:for="{{posts}}" wx:for-item="post" wx:key>
   <view bindtap="goToShow" data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
       <view>{{post.content}}</view>
       <view class="text-sm text-white" style="font-weight: lighter; opacity: 0.7; margin-top: 10rpx;">#{{post.searched}}</view>
@@ -54,8 +54,8 @@
 </view>
 
 
-<view wx:if="{{filtering}}" class="timeline" wx:for="{{filtered_posts}}" wx:for-item="post" wx:key="id">
-  <view data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
+<view wx:if="{{filtering}}" class="timeline" wx:for="{{filtered_posts}}" wx:for-item="post" wx:key>
+  <view bindtap="goToShow" data-id='{{post.id}}' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url({{post.image}})">
   {{post.content}}
     <view bindtap='toggle_comments' data-id='{{post.id}}' class='comment_count'>{{post.comments.length}} comments</view>
     <view wx:if="{{post.comment_toggle}}">
