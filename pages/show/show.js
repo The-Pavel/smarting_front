@@ -11,14 +11,22 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+
+  fetchComments: function(id) {
     let page = this
     wx.request({
-      url: `http://localhost:3000/api/v1/posts/${options.id}`,
-      success: function(res) {
+      url: `http://localhost:3000/api/v1/posts/${page.data.post_id}`,
+      success: function (res) {
         page.setData(res.data)
       }
     })
+  },
+
+  onLoad: function (options) {
+    let page = this
+    page.setData({post_id: options.id})
+    page.fetchComments(options.id)
+    setInterval(page.fetchComments, 15000)
   },
 
   send_comment: function (e) {

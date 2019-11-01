@@ -11,6 +11,7 @@ Page({
     filter: "",
     search_done: false,
     TabCur: null,
+    
   },
 
   goToShow: function(e) {
@@ -19,6 +20,7 @@ Page({
     })
   },
 
+  
   start_over: function() {
     this.setData({image_selected: false, text_added: false, search_done: false})
   },
@@ -185,7 +187,7 @@ Page({
     page.setData({ search_done: true })
     const giphy_api = '2r4EOUsY6HmplARSLRFuOw1PunnjnSI4'
     const giphy_endpoint = 'https://api.giphy.com/v1/gifs/search'
-    let data = {api_key: giphy_api, q: e.detail.value}
+    let data = {api_key: giphy_api, q: e.detail.value, rating: 'g'}
     wx.request({
       url: giphy_endpoint,
       method: 'GET',

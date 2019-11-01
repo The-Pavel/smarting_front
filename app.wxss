@@ -3,18 +3,18 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   /* padding-top: 200rpx; */
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   height: 100vh !important;
-  background-image: url(https://media.giphy.com/media/kUDSDNvKwrM2s/giphy.gif);
-  background-size: contain;
+  background-image: url('https://media.istockphoto.com/vectors/halloween-greeting-card-vector-id864598486?k=6&m=864598486&s=612x612&w=0&h=-Bc-BBpU-JHM6SmBbVpspd3IjqTuzl3RKE8nzQE3DOo=');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   position: fixed;
   bottom: 0;
-} 
+}  */

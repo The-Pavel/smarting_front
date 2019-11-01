@@ -1,12 +1,9 @@
 <!--index.wxml-->
 
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-    <view slot="content">Welcome, friend...</view>
+    <view slot="content">你好朋友 👋</view>
 </cu-custom>
 
 <view class="container">
-  <view class="userinfo">
-    <button class='button text-black text-bold' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> click here to vent </button>
-  </view>
- 
+    <button class='button text-black text-bold' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> click here to vent </button>
 </view>

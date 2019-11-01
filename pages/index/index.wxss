@@ -1,9 +1,4 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .userinfo-avatar {
   width: 128rpx;
@@ -16,22 +11,27 @@
   color: #aaa;
 }
 
-.button {
-  width: 100vw;
-  border: none !important;
-  text-align: center;
-  height: 33vh;
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  height: 100vh;
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572609756741&di=085c1eb049aa9f226e65b52a188484a7&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170122%2F2d5f33e5b23b48daab45c6c5ee15d2ce_th.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -500px;
+} 
+
+.button {
+  margin-top: 50rpx;
+  width: 60vw;
+  border: none !important;
+  text-align: center;
   font-size: 40rpx;
   color: black;
   background-color: white;
 }
 
-.button::after {
-  border: none !important;
-}
 
 page {
   background-color: white;
